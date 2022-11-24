@@ -1,0 +1,132 @@
+<div class="container">
+    <h3>List Transaksi</h3>
+    <hr>
+
+    <ul class="list-group">
+        <% transaksi.forEach(transaksi=> { %>
+            <li class="list-group-item">
+                <div class="row">
+                    
+                    <!-- area tgl transaksi -->
+                    <div class="col-lg-3">
+                        <small>Tgl. Transaksi</small>
+                        <h6>
+                            <%= transaksi.tgl_transaksi %>
+                        </h6>
+                    </div>
+
+                    <!-- area nama member -->
+                    <div class="col-lg-4">
+                        <small>Nama Member</small>
+                        <h6>
+                            <%= transaksi.nama_member %>
+                        </h6>
+                    </div>
+
+                    <!-- area nama admin -->
+                    <div class="col-lg-4">
+                        <small>Nama Admin</small>
+                        <h6>
+                            <%= transaksi.nama_admin %>
+                        </h6>
+                    </div>
+
+                    <!-- area nama admin -->
+                    <div class="col-lg-1">
+                        <a href="/transaksi/<%= transaksi.id %>">
+                        <button class="btn btn-danger btn-sm">
+                            &times;
+                        </button>
+                        </a>
+                    </div>
+                </div>
+                <h5 class="mt-2">Daftar Pembelian</h5>
+                <ul class="list-group">
+                    <% transaksi.detail.forEach(item => { %>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <!-- area utk nama telur -->
+                                <div class="col-lg-4">
+                                    <small class="text-info">Nama Telur</small>
+                                    <h6 class="fst-italic">
+                                        <%= item.jenis_telur %> 
+                                    </h6>
+                                </div>
+                        
+                                <!-- area utk harga  -->
+                                <div class="col-lg-3">
+                                    <small class="text-info">Harga</small>
+                                    <h6 class="fst-italic">
+                                        <%= item.harga_telur %> 
+                                    </h6>
+                                </div>
+
+                                 <!-- area utk jumlah  -->
+                                 <div class="col-lg-2">
+                                    <small class="text-info">Qty</small>
+                                    <h6 class="fst-italic">
+                                        <%= item.jumlah_telur %> 
+                                    </h6>
+                                </div>
+
+                                <!-- area utk total  -->
+                                <div class="col-lg-3">
+                                    <small class="text-info">Total telur</small>
+                                    <h6 class="fst-italic">
+                                        <%= Number(item.jumlah_telur*item.harga_telur) %> 
+                                    </h6>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <!-- area utk nama pack -->
+                                <div class="col-lg-4">
+                                    <small class="text-info">Nama Pack</small>
+                                    <h6 class="fst-italic">
+                                        <%= item.nama_pack%> 
+                                    </h6>
+                                </div>
+                        
+                                <!-- area utk harga  -->
+                                <div class="col-lg-3">
+                                    <small class="text-info">Harga</small>
+                                    <h6 class="fst-italic">
+                                        <%= item.harga_pack %> 
+                                    </h6>
+                                </div>
+
+                                 <!-- area utk jumlah  -->
+                                 <div class="col-lg-2">
+                                    <small class="text-info">Qty</small>
+                                    <h6 class="fst-italic">
+                                        <%= item.jumlah_pack %> 
+                                    </h6>
+                                </div>
+
+                                <!-- area utk total  -->
+                                <div class="col-lg-3">
+                                    <small class="text-info">Total pack</small>
+                                    <h6 class="fst-italic">
+                                        <%= Number(item.jumlah_pack*item.harga_pack) %> 
+                                    </h6>
+                                </div>
+
+                            </div>
+            
+                            <!-- area utk total  -->
+                            <div class="col-lg-3">
+                                <small class="text-info">Total</small>
+                                <h6 class="fst-italic">
+                                    <%= Number(item.jumlah_pack*item.harga_pack + item.jumlah_telur*item.harga_telur) %> 
+                                </h6>
+                            </div>
+                            
+                     </li>
+                     
+                    <% }) %>
+                </ul>
+            </li>
+            <% }) %>
+    </ul>
+</div>

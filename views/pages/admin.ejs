@@ -1,0 +1,61 @@
+<div class="container">
+    <h4>Data Apoteker</h4>
+    <hr>
+    <!-- menampilkan data customer -->
+    <ul class="list-group">
+        <!-- forEach -> scanning isi array -->
+        <% data.forEach(admin => { %>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <small class="text-success">
+                            Nama
+                        </small> <br>
+                        <%= admin.nama_admin %> 
+                    </div>
+
+                    <div class="col-lg-3">
+                        <small class="text-success">
+                            Username
+                        </small> <br>
+                        <%= admin.username %> 
+                    </div>
+
+                    <div class="col-lg-3">
+                        <small class="text-success">
+                            Password
+                        </small> <br>
+                        <%= admin.password %> 
+                    </div>
+
+                    <div class="col-lg-3">
+                        <small class="text-succes">
+                            Opsi
+                        </small> <br>
+
+                        <!-- button edit -->
+                        <a href="/admin/edit/<%= admin.id %>">
+                            <button class="btn btn-sm btn-primary">
+                                Edit
+                            </button>
+                        </a>
+
+                        <!-- button delete -->
+                        <a href="/admin/delete/<%= admin.id %>"
+                            onclick="return confirm(`Apakah Anda yakin ingin menghapus data ini?`)">
+                            <button class="btn btn-sm btn-danger">
+                                Hapus
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        <% }) %>
+    </ul>
+    <a href="/admin/add">
+        <button class="btn btn-md btn-success">
+            Tambah Data
+        </button>
+    </a>
+
+</div>
